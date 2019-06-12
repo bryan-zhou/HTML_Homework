@@ -1,0 +1,88 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	font-size: 0.85em;
+	font-weight: bold;
+ }
+
+p{
+	line-height: 1em;
+}
+
+#left_div
+{
+	position: relative;
+	width:52%;
+	height:100%;
+	background-color: #5CB6E7;
+	background-image: url("../img/foreign_parts_left.png");
+	background-position: 35px,-30px;
+	background-repeat: no-repeat;
+	position: fixed;
+}
+
+#right_div
+{
+	position: absolute;
+	float: right;
+	left:52%;
+	top:0px;
+	text-align: center;
+}
+
+#content_div
+{
+	padding:50px 70px 15px 70px;
+	background-image: url("../img/bg_dot.jpg");
+}
+
+.date_01
+{
+	margin: 30px 0px;
+}
+
+.mark_01
+{
+	margin: 20px 0px;
+}
+
+.desc_div
+{
+	text-align: left;
+}
+
+#banner:hover
+{
+	opacity: 0.7;
+}
+
+#tb_tra
+{
+	width:100%;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+#tb_tra td
+{
+	border: 1px solid #bbbbbb;
+	padding: 15px;
+}
+
+#tb_tra th
+{
+	background-color:#5CB6E7;
+	border: 1px solid #bbbbbb;
+	padding: 15px;
+}
+
+#copyright_div
+{
+	text-align: left;
+	padding: 20px 70px 20px 70px;
+}
+
+.memo
+{
+	font-size: 0.7em;
+}
