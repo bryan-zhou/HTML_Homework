@@ -3,13 +3,91 @@
 
 <head>
     <meta charset="UTF-8">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
     <title>My Calculator</title>
 </head>
 
-<body>
+<style>
+    td {
+        width: 100px;
+    }
 
-   <p><a href="https://www.desmos.com/scientific" target="_blank">參考網路上面的計算機</a></p>
-    
+    td>input {
+        width: 100%;
+    }
+
+    .calculator-table {
+        margin: auto;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <br>
+        <table class="calculator-table">
+            <tr>
+                <td colspan="2"><input type="text" name="answer" id="result"></td>
+                <td><input class="btn btn-secondary" type="button" value="c" onclick="clearResult()"></td>
+                <td><input class="btn btn-secondary" type="button" value="back" onclick="backSpace()"></td>
+            </tr>
+            <tr>
+                <td><input class="btn btn-secondary" type="button" value="7" onclick="appendValue(this)"></td>
+                <td><input class="btn btn-secondary" type="button" value="8" onclick="appendValue(this)"></td>
+                <td><input class="btn btn-secondary" type="button" value="9" onclick="appendValue(this)"></td>
+                <td><input class="btn btn-secondary" type="button" value="/" onclick="appendValue(this)"></td>
+            </tr>
+            <tr>
+                <td><input class="btn btn-secondary" type="button" value="4" onclick="appendValue(this)"></td>
+                <td><input class="btn btn-secondary" type="button" value="5" onclick="appendValue(this)"></td>
+                <td><input class="btn btn-secondary" type="button" value="6" onclick="appendValue(this)"></td>
+                <td><input class="btn btn-secondary" type="button" value="*" onclick="appendValue(this)"></td>
+            </tr>
+            <tr>
+                <td><input class="btn btn-secondary" type="button" value="1" onclick="appendValue(this)"></td>
+                <td><input class="btn btn-secondary" type="button" value="2" onclick="appendValue(this)"></td>
+                <td><input class="btn btn-secondary" type="button" value="3" onclick="appendValue(this)"></td>
+                <td><input class="btn btn-secondary" type="button" value="-" onclick="appendValue(this)"></td>
+            </tr>
+            <tr>
+                <td><input class="btn btn-secondary" type="button" value="0" onclick="appendValue(this)"></td>
+                <td><input class="btn btn-secondary" type="button" value="." onclick="appendValue(this)"></td>
+                <td><input class="btn btn-secondary" type="button" value="=" onclick="calculateResult()"></td>
+                <td><input class="btn btn-secondary" type="button" value="+" onclick="appendValue(this)"></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        // 增加運算式
+        function appendValue(obj) {
+            document.getElementById("result").value += obj.value;
+        }
+
+        // 修改運算式
+        function backSpace() {
+            displayValue = document.getElementById("result").value;
+            document.getElementById("result").value = displayValue.substr(0, displayValue.length - 1);
+        }
+
+        // 計算運算式
+        function calculateResult() {
+            let x = document.getElementById("result").value;
+
+            try {
+                let y = eval(x);
+                document.getElementById("result").value = y;
+            } catch (error) {
+                alert('運算式不完整!!');
+            }
+        }
+
+        // 清除運算式
+        function clearResult() {
+            document.getElementById("result").value = "";
+        }
+    </script>
 </body>
 
 </html>
