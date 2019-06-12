@@ -3,13 +3,76 @@
 
 <head>
     <meta charset="UTF-8">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>My Calculator</title>
 </head>
 
-<body>
+<style>
+    td {
+        width: 100px;
+    }
 
-   <p><a href="https://www.desmos.com/scientific" target="_blank">參考網路上面的計算機</a></p>
-    
+    td>input {
+        width: 100%;
+    }
+
+    .calculator-table {
+        margin: auto;
+    }
+</style>
+
+<body>
+    <div class="main">
+        <br>
+        <table class="calculator-table">
+            <tr>
+                <td colspan="3"><input type="text" name="answer" id="result"></td>
+                <td><input class="btn btn-secondary" type="button" value="c" onclick="clearResult()"></td>
+            </tr>
+            <tr>
+                <td><input class="btn btn-secondary" type="button" value="7" onclick="appendValue(this)"></td>
+                <td><input class="btn btn-secondary" type="button" value="8" onclick="appendValue(this)"></td>
+                <td><input class="btn btn-secondary" type="button" value="9" onclick="appendValue(this)"></td>
+                <td><input class="btn btn-secondary" type="button" value="/" onclick="appendValue(this)"></td>
+            </tr>
+            <tr>
+                <td><input class="btn btn-secondary" type="button" value="4" onclick="appendValue(this)"></td>
+                <td><input class="btn btn-secondary" type="button" value="5" onclick="appendValue(this)"></td>
+                <td><input class="btn btn-secondary" type="button" value="6" onclick="appendValue(this)"></td>
+                <td><input class="btn btn-secondary" type="button" value="*" onclick="appendValue(this)"></td>
+            </tr>
+            <tr>
+                <td><input class="btn btn-secondary" type="button" value="1" onclick="appendValue(this)"></td>
+                <td><input class="btn btn-secondary" type="button" value="2" onclick="appendValue(this)"></td>
+                <td><input class="btn btn-secondary" type="button" value="3" onclick="appendValue(this)"></td>
+                <td><input class="btn btn-secondary" type="button" value="-" onclick="appendValue(this)"></td>
+            </tr>
+            <tr>
+                <td><input class="btn btn-secondary" type="button" value="0" onclick="appendValue(this)"></td>
+                <td><input class="btn btn-secondary" type="button" value="." onclick="appendValue(this)"></td>
+                <td><input class="btn btn-secondary" type="button" value="=" onclick="calculateResult()"></td>
+                <td><input class="btn btn-secondary" type="button" value="+" onclick="appendValue(this)"></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function appendValue(obj) {
+            document.getElementById("result").value += obj.value;
+        }
+
+        function calculateResult() {
+            let x = document.getElementById("result").value;
+            let y = eval(x);
+            document.getElementById("result").value = y;
+        }
+
+        function clearResult() {
+            document.getElementById("result").value = "";
+        }
+    </script>
 </body>
 
 </html>
